@@ -1,12 +1,16 @@
+'use client'
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { BsFillMicFill } from 'react-icons/bs'
+import {RxCross2} from 'react-icons/rx'
+import { useSearchParams } from 'next/navigation';
 
 export default function SearchBox() {
-    const [input ,setInput]=useState("")
+    const searchPrams=useSearchParams();
+    const searchTerm=searchPrams.get("searchTerm") || "";
+    const [input ,setInput]=useState( searchTerm || "")
     const router=useRouter();
-    const [randomSearchLoading, setRandomSearchLoading]=useState(false);
     function handleSubmit(e){
           e.preventDefault();
           if (!input.trim()) return;
@@ -14,10 +18,11 @@ export default function SearchBox() {
         }
   return (
     <div>
-        <form onSubmit={handleSubmit} className='flex w-full space-x-2 items-center border border-gray-200 px-5 py-3 rounded-full hover:shadow-md transition-shadow focus-within:shadow-md sm:max-w-xl lg:max-w-2xl'>
-               <input onChange={(e)=>setInput(e.target.value)} value={input} type="text" className='flex-grow focus:outline-none border-r'/>
-               <BsFillMicFill  className='text-lg'/>
-               <AiOutlineSearch className='text-xl text-gray-500 mr-3'/>
+        <form onSubmit={handleSubmit} className='flex space-x-2 items-center border border-gray-200 px-6 py-3 ml-10 mr-5 flex-grow rounded-full shadow-md transition-shadow focus-within:shadow-md max-w-3xl'>
+               <input onChange={(e)=>setInput(e.target.value)} value={input} placeholder='Search hear..' type="text" className='w-full focus:outline-none'/>
+               <RxCross2 onClick={(e)=>setInput("")} className='text-2xl text-gray-500 cursor-pointer sm:mr-2'/>
+               <BsFillMicFill  className='hidden sm:inline-flex text-4xl text-blue-500 pl-4 border-l-2 border-gray-300 mr-3'/>
+               <AiOutlineSearch onClick={handleSubmit} className='text-2xl hidden sm:inline-flex text-blue-500 cursor-pointer mr-3'/>
             </form>
     </div>
   )
