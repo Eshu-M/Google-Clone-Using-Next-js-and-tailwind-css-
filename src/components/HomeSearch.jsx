@@ -9,6 +9,7 @@ export default function HomeSearch() {
   const [input ,setInput]=useState("")
   const router=useRouter();
   const [randomSearchLoading, setRandomSearchLoading]=useState(false);
+  
   function handleSubmit(e){
     e.preventDefault();
     if (!input.trim()) return;
