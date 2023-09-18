@@ -1,8 +1,9 @@
+import ImagesSearchResults from '@/components/ImagesSearchResults';
 import React from 'react'
 
 export default async function ImageSearchPage({ searchParams }) {
   const response = await fetch(
-    `https://www.googleapis.com/customsearch/v1?key=${process.env.apiKey}&cx=${process.env.cx}&q=${searchParams.searchTerm}}`
+    `https://www.googleapis.com/customsearch/v1?key=${process.env.apiKey}&cx=${process.env.cx}&q=${searchParams.searchTerm}}&searchType=Image`
   );
 
   const data = await response.json();
@@ -21,5 +22,5 @@ export default async function ImageSearchPage({ searchParams }) {
     </div>
   }
   
-  return <>{results && results.map((result) => <h1>{result.title}</h1>)}</>;
+  return <>{results && <ImagesSearchResults results={data}/>}</>;
 }
