@@ -1,4 +1,5 @@
 import ImagesSearchResults from '@/components/ImagesSearchResults';
+import Link from 'next/link';
 import React from 'react'
 
 export default async function ImageSearchPage({ searchParams }) {
