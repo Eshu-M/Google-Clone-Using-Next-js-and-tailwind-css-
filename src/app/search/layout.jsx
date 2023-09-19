@@ -10,7 +10,7 @@ export const metadata = {
 }
 export default function SearchLayout({ children }) {
   return (
-      <div className={inter.className}>
+      <div className={inter.className }>
         <SearchHeader/>
         {children}
       </div>

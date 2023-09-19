@@ -9,7 +9,7 @@ import SearchHeaderOptions from './SearchHeaderOptions';
 
 export default function SearchHeader() {
   return (
-    <header className='sticky top-0 bg-white'>
+    <header className='sm:sticky sm:top-0 bg-white'>
         <div className="">
         <div className='hidden sm:flex items-center justify-between w-full p-6 '>
             <div>
