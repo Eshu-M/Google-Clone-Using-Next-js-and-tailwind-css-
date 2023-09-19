@@ -11,8 +11,12 @@ export default function Home() {
 
     {/*Body */}
 
-    <div className='flex flex-col items-center mt-24 pb-40'>
+    <div className='hidden sm:flex sm:flex-col sm:items-center sm:mt-24 sm:pb-40'>
       <Image width={'300'} height={'100'} src={'/Google-Logo.png'} alt='Google Logo'/>
+      <HomeSearch/>
+    </div>
+    <div className='flex flex-col justify-center items-center mt-16 pb-30'>
+      <Image width={'150'} height={'50'} src={'/Google-Logo.png'} alt='Google Logo'/>
       <HomeSearch/>
     </div>
     </>
