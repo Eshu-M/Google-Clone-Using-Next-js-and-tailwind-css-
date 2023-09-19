@@ -37,7 +37,7 @@ export default function SearchHeader() {
               
               <button className='bg-blue-500 text-white px-3 py-1 font-medium rounded-md hover:brightness-105 hover:shadow-md transition-all ml-2'>Sign in</button>
             </div>
-            <div className="flex-1 mt-4">
+            <div className="mt-4">
               <SearchBox/>
             </div>
         </div>
